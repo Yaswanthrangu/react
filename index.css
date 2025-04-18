@@ -6,7 +6,7 @@
 }
 
 .logo {
-    width: 200px;
+    width: 160px;
 }
 
 .nav-items > ul {
@@ -47,4 +47,8 @@
 
 .search {
     padding: 10px;
+}
+
+.filter-btn {
+    margin: 10px;
 }
