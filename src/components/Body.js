@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard"
 import resList from "../utils/mockData"
 import {useState, useEffect} from "react";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom";
 
 const Body = () => {
 
@@ -18,7 +19,6 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&collection=83634&tags=layout_CCS_SouthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
         const json = await data.json();
-        console.log(json);
         const restaurantCards = json?.data?.cards?.filter(
             (card) =>
                 card?.card?.card?.["@type"] ===
@@ -43,12 +43,12 @@ const Body = () => {
                 </div>
                 <button className="filter-btn" onClick={() => {
                     const filteredList = listOfRestaurants.filter((res) => res?.card?.card?.info?.avgRating > 4.4);
-                    setListOfRestaurants(filteredList);
+                    setFilteredRestaurants(filteredList);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="res-container">
                 {filteredRestaurants.map((restaurant) => (
-                    <RestaurantCard key={restaurant.card?.card?.info?.id} resData={restaurant}/>
+                    <Link className="res-menu-link" to={"/restaurants/"+restaurant.card?.card?.info?.id} key={restaurant.card?.card?.info?.id}><RestaurantCard resData={restaurant}/></Link>
                 ))}
             </div>
         </div>

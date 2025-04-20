@@ -87,3 +87,13 @@
 .search-btn {
     padding: 5px;
 }
+
+.nav-li {
+    text-decoration: none;
+    color: black;
+}
+
+.res-menu-link {
+    text-decoration: none;
+    color: black;
+}
