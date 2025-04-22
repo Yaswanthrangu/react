@@ -1,6 +1,6 @@
 const Grocery = () => {
     return (
-        <h1>Grocery</h1>
+        <h1 className="m-2 p-4 text-lg">Grocery</h1>
     )
 }
 
