@@ -11,9 +11,7 @@ const useRestaurantMenu = (resId) => {
     
     const fetchMenu = async () => {
         const data = await fetch(MENU_API+resId+"&catalog_qa=undefined&query=Dosa&submitAction=ENTER");
-        console.log(data);
         const json = await data.json();
-        console.log(json);
         setResInfo(json.data);
     };
 
